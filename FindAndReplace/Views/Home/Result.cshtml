@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+
+
+<div class="jumbotron">
+  <h1>Here's your results!</h1>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"> <h3>Your original string</h3> </div>
+    <div class="panel-body">
+      <h2>@Model.GetOriginal()</h2>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"> <h3>Your modified string: </h3> </div>
+    <div class="panel-body">
+      <h2>@Model.GetModified()</h2>
+    </div>
+</div>
+
+<br>
+
+
+<a href="/"><button type="button" class="btn-primary">Back</button></a>
+
+</div>

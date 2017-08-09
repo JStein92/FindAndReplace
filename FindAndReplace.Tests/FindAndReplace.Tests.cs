@@ -11,7 +11,7 @@ namespace FindAndReplace.Tests
     [TestMethod]
     public void FindReplace_ReplaceAWordInASentenceWithAnotherWord_True()
     {
-      FAP myFap = new FAP("This is a Test", "Test", "Fap");
+      FARP myFap = new FARP("This is a Test", "Test", "Fap");
       string expected = "This is a Fap";
 
       string actual = myFap.FindReplace();
@@ -22,8 +22,8 @@ namespace FindAndReplace.Tests
     [TestMethod]
     public void FindReplacePartials_ReplacePartialStringMatches_True()
     {
-      FAP myFap = new FAP("I am walking my caT ca the cAthedral.", "CaT", "dog");
-      string expected = "I am walking my dog ca the doghedral.";
+      FARP myFap = new FARP("I am walking my caT to the cAthedral.", "cat", "dog");
+      string expected = "I am walking my dog to the doghedral.";
 
       string actual = myFap.FindReplacePartials();
 

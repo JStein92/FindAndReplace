@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+
+
+<div class="container">
+  <div class="jumbotron">
+  <h1>Replace a word in your sentence!</h1>
+  </div>
+
+  <form action="/result" method="post">
+
+    <div class="form-group">
+      <label for="original">Enter string:</label>
+      <input type="text" name="original" class="form-control">
+    </div>
+
+  <div class="form-group">
+    <label for="word-find">What word do you want to replace?</label>
+    <input type="text" name="word-find" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="replacement-string">What shall that word be replaced with?</label>
+    <input type="text" name="replacement-string" class="form-control">
+  </div>
+
+    <button type="submit" name="button" class="btn-primary">Submit!</button>
+  </form>
+</div>

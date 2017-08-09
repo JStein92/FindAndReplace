@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FindAndReplace.Models
 {
-  public class FAP
+  public class FARP
   {
     private string _originalString;
     private string _modifiedString;
@@ -11,13 +11,22 @@ namespace FindAndReplace.Models
     private string _replacementWord;
     private int _replacementStartIndex;
 
-    public FAP (string originalString, string wordToFind, string replacementWord)
+    public FARP (string originalString, string wordToFind, string replacementWord)
     {
       _originalString = originalString;
       _wordToFind = wordToFind;
       _replacementWord = replacementWord;
 
       _modifiedString = _originalString;
+    }
+
+    public string GetOriginal()
+    {
+      return _originalString;
+    }
+    public string GetModified()
+    {
+      return _modifiedString;
     }
 
     public string FindReplacePartials()
@@ -66,14 +75,27 @@ namespace FindAndReplace.Models
     public void ReplaceAllPartials()
     {
       int j = 0;
-      char[] originalStringChars = _modifiedString.ToCharArray(); //make character array from original string
-
-      for (int i = _replacementStartIndex; i< (_replacementStartIndex+ _wordToFind.Length); i++) //loop through original string starting at _replacementStartIndex, go for the length of replacement word, and replace letters in char array with replacement word
+      List<char> charList = new List<char>();
+    //  char[] originalStringChars = _modifiedString.ToCharArray(); //make character array from original string
+      for (int i = 0; i < _modifiedString.Length; i++)
       {
-        originalStringChars[i] = _replacementWord[j++];
+        charList.Add(_modifiedString[i]);
       }
 
-      _modifiedString = String.Join("",originalStringChars); //join back to string and update _originalString to include replacementWord
+      int lengthDiff = _replacementWord.Length - _wordToFind.Length;
+
+      for (int i = _replacementStartIndex; i< (_replacementStartIndex+ _replacementWord.Length); i++) //loop through original string starting at _replacementStartIndex, go for the length of replacement word, and replace letters in char array with replacement word
+      {
+        // if (lengthDiff >0)
+        // {
+        //   charList.Insert((i+_wordToFind.Length), ' ');
+        //   lengthDiff--;
+        // }
+
+        charList[i] = _replacementWord[j++];
+      }
+
+      _modifiedString = String.Join("",charList.ToArray()); //join back to string and update _originalString to include replacementWord
       //Console.WriteLine("New string: " + _modifiedString);
     }
 
