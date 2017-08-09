@@ -18,5 +18,16 @@ namespace FindAndReplace.Tests
 
       Assert.AreEqual(expected,actual);
     }
+
+    [TestMethod]
+    public void FindReplacePartials_ReplacePartialStringMatches_True()
+    {
+      FAP myFap = new FAP("I am walking my caT ca the cAthedral.", "CaT", "dog");
+      string expected = "I am walking my dog ca the doghedral.";
+
+      string actual = myFap.FindReplacePartials();
+
+      Assert.AreEqual(expected,actual);
+    }
   }
 }
